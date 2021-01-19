@@ -194,6 +194,14 @@ By completing this part of the workshop you now have a better understanding of w
 ----
 
 # S3 Serverside Encryption
+In this seciton we will:
+- tighten our administrative key policy
+- use a second IAM user with full S3 permission via IAm to upload data
+- Enforce default bucket encryption
+- demonstrate what access the second user now has
+- Add KMS policy access to allow the user to encrypt and encrypt data in S3
+
+
 
 You have completed the second section of the workshop. In the next section we will work with a real-life Web App and will try to implement best practices. You can now [navigate to the next section of the Workshop](https://github.com/charliejllewellyn/aws-kms-workshop/blob/master/Section-3-Working-with-Web-App.md)
 

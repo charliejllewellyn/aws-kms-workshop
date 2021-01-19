@@ -1,5 +1,15 @@
 {
       "AWSTemplateFormatVersion" : "2010-09-09",
+      "Parameters" : {
+        "UserName" : {
+          "Type": "String",
+          "Default": "kmsTest"
+        },
+        "Password" : {
+          "Type": "String",
+          "Default": "GH56^uu!po"
+        }
+      },
          
       "Resources" : {
 
@@ -32,8 +42,8 @@
         "ManagedPolicyArns": [
           "arn:aws:iam::aws:policy/AmazonS3FullAccess",
           "arn:aws:iam::aws:policy/AWSCloudTrailReadOnlyAccess",
-	  "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
-
+	        "arn:aws:iam::aws:policy/AmazonEC2FullAccess",
+          "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
          ]
       }
     },
@@ -44,13 +54,37 @@
         "Roles": ["KMSWorkshop-InstanceInitRole"],
         "Path": "/"
       }
-    }
+    },
+    "MyEC2Instance" : {
+   "Type" : "AWS::EC2::Instance",
+   "Properties" : {
+      "ImageId" : "ami-0e80a462ede03e653",
+      "InstanceType" : "t2.micro",
+      "IamInstanceProfile" : {"Ref" : "KMSWorkshopInstanceRole"},
+      "Tags": [
+        { "Key" : "Name",
+          "Value" : "KMS-workshop" }
+      ]
+          }
+    },
 
-
-
-
-
-
-
+      		"MyUser": {
+      			"Type": "AWS::IAM::User",
+      			"Properties": {
+      				"UserName": { "Ref" : "UserName"},
+      				"LoginProfile": {
+      					"Password": { "Ref" : "Password"}
+      				},
+              "ManagedPolicyArns": [ "arn:aws:iam::aws:policy/AmazonS3FullAccess" ]
+      			}
+      		}
+    },
+    "Outputs" : {
+      "UserName" : {
+        "Value": { "Ref" : "UserName"}
+      },
+      "Password" : { 
+        "Value": { "Ref" : "Password"}
       }
+    }
 }

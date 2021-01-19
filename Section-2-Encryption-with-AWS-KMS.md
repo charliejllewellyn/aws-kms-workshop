@@ -201,7 +201,48 @@ In this seciton we will:
 - demonstrate what access the second user now has
 - Add KMS policy access to allow the user to encrypt and encrypt data in S3
 
+### Step 1
+- Login as your AWS administrator
+- Open the IAM console, select **roles** and search for *team*
+- Open the role and copy the **arn**
+- Open the KMS console and select the key you created earlier
+- Edit teh key policy and edit the key policy
+- Change the principal to the **arn** you got from the previous step
+This will now only allow this role to manage this key
 
+### Step 2
+- Open the AWS console and open CloudFormation
+- Click the stack you created earlier and click on the outputs tab
+- Open a new browser and login with details provided
+- Open the S3 console and upload a file. It should succeed
+
+### Step 3
+- As the account administrator open S3 and set the default encryption to your FirstCMK key
+- Go back to your other browser session and now try uploading content. It should fail....why?
+
+### Step 4
+- As the account administrator open the KMS console
+- Add the following section to the key policiy
+```
+        {
+            "Sid": "User key permissions",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::XXXXXXXXXXXX:user/kmsTest"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:Encrypt",
+                "kms:GenerateDataKey",
+                "kms:GenerateDataKeyWithoutPlaintext"
+            ],
+            "Resource": "*"
+        }
+```
+**NOTE: change the account Id**
+
+### Step 5
+- Go back to your other browser session and now try uploading content. This time it should pass.
 
 You have completed the second section of the workshop. In the next section we will work with a real-life Web App and will try to implement best practices. You can now [navigate to the next section of the Workshop](https://github.com/charliejllewellyn/aws-kms-workshop/blob/master/Section-3-Working-with-Web-App.md)
 

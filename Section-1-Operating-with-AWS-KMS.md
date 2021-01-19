@@ -197,37 +197,6 @@ $ aws kms enable-key-rotation --key-id your-key-id
 
 If the command executed successfully, you have enabled the automatic rotation of the CMK, that will happen in 365 days since the command executed, this is: 1 year from now.
 
-Another way to rotate the CMKs built with AWS key material is to generate a new key.
-Then, to use then new CMK after rotation you might need to replace the information on our applications to point to this new key one by one every place in the application's code. However, it is more efficient work with aliases, as we explained before, and to update the CMK alias to point to the new key just created. Let's do it:
-
-
-Firt of all create a new key with AWS key material. We already used this command before, in fact, it was the first command in the workshop.
-
-```
-$ aws kms create-key
-```
-
-You will obtain a response with a new KeyID and a new Key ARN. We can update the alias we set i for the first key we generated, "**FirstCMK**", to point to this new key, so it replaces the old one. For that, you will use the KeyID or key ARN of the new key you have just created.
-
-```
-$ aws kms update-alias --alias alias/FirstCMK --target-key-id KeyId
-```
-
-It turns out that the role our instance uses does not have permissions to update aliases. You need to follow the same steps you followed when providing permissions to import keys to the role. This is: create a policy for AWS KMS service that allows you update aliases and then attach it to the role. Also, this policy should allow to disable, enable, schedule deletion and delete CMKs; we are needing this permissions for the next step, so it is wise adding them now.
-
-At this point of the workshop you should be able to do it with no issues. One tip: Update aliases, enable and disable key and delete operation are part of the Write operations of AWS KMS. See image below.
-
-![Figure-16](/res/S1F16.png)
-
-<**Figure-16**>
-
-
-For resources select both "**alias**" and "**key**". You can name the policy "**KMSWorkshop-RotationDisableOps**". 
-
-Try the command again after you attached the policy to the role. All the applications that were using "FirstCMK" key alias, are now using the new key. In this way, we did not have to manually change the "KeyId" or key ARN one by one in all occurrences of our code were the CMK is invoked. 
-
-The old key remains in AWS KMS (until you delete it). When you use the CMK to decrypt, AWS KMS uses the backing key that was used to encrypt, this is, for example, if you needed to decrypt some encrypted data previous to the alias change. It will happen automatically.  More information about Key Rotation in [this section](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) of AWS KMS documentation.
-
 ### Deleting AWS KMS CMKs
 
 Deleting customer master keys is a very sensitive operation.  You should delete a CMK only when you are sure that you don't need to use it anymore. The implications of key deletion are explained in the following [section](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) of the AWS KMS documentation, please read carefully.

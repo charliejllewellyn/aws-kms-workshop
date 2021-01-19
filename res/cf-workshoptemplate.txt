@@ -85,6 +85,9 @@
       },
       "Password" : { 
         "Value": { "Ref" : "Password"}
+      },
+      "IamLoginUrl": {
+        "Value": { "Fn::Sub" : [ "https://${AccountId}.signin.aws.amazon.com/console", { "AccountId": {"Ref" : "AWS::AccountId" }} ] }
       }
     }
 }

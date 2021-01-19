@@ -228,25 +228,6 @@ Try the command again after you attached the policy to the role. All the applica
 
 The old key remains in AWS KMS (until you delete it). When you use the CMK to decrypt, AWS KMS uses the backing key that was used to encrypt, this is, for example, if you needed to decrypt some encrypted data previous to the alias change. It will happen automatically.  More information about Key Rotation in [this section](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) of AWS KMS documentation.
 
-### Step 2 - Rotating CMKs generated with your own key material 
-
-
-With the CMKs generated with your own key material, automatic rotation is not possible. You have to manually create a new key, with your own material, and again: Either update the alias of the CMK (recommended) or change your code to point to the new key. It seems much easier just to change alias pointer. 
-
-In order to do so, we would need to create a new key with imported key material, as we did with to create the CMK "ImportedCMK" with external origin and then update the alias "**ImportedCMK**". **NOTE:** Timewise, you are **not required** to do it as part of the workshop, as the procedure is already covered.
-
-In case you would like to rotate the CMK created with your own key material, follow the procedure in the section above "[Generate CMK with your own key material](https://github.com/aws-samples/aws-kms-workshop/blob/master/Section-1-Operating-with-AWS-KMS.md#generate-cmks-with-your-own-key-material)". 
-Once you have created a new CMK with you new imported key material, update the alias "**ImportedCMK**" to point to the new key you have provided. Replace **KeyID** in command below with the KeyID of your newly created CMK.
-
-```
-$ aws kms update-alias --alias ImportedCMK --target-key-id KeyID
-```
-
-For CMKs created by AWS and using AWS key material:  AWS Managed CMKs, the rotation is automatically happening every three years. See [this link](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) of AWS KMS documentation for more info on key rotation.
-
----
-
-
 ### Deleting AWS KMS CMKs
 
 Deleting customer master keys is a very sensitive operation.  You should delete a CMK only when you are sure that you don't need to use it anymore. The implications of key deletion are explained in the following [section](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) of the AWS KMS documentation, please read carefully.

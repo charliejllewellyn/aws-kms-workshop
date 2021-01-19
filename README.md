@@ -16,11 +16,11 @@ The entire Workshop can be covered in around two hours, depending on your previo
 # Workshop content:
 The workshop contains four different sections (**NOTE:** designed to be followed in order) covering areas like AWS CMKs operations, Types of encryption in AWS KMS with focus on envelope encryption, key policies and best practices working with a demo Web App and AWS KMS monitoring.
 
-* [Workshop Environment Set-up](https://github.com/aws-samples/aws-kms-workshop/blob/master/Section-0-Workshop-Environment-Set-up.md)
-* [Section I - Operating with AWS KMS and the CMKs](https://github.com/aws-samples/aws-kms-workshop/blob/master/Section-1-Operating-with-AWS-KMS.md)
-* [Section II - Encryption with AWS KMS](https://github.com/aws-samples/aws-kms-workshop/blob/master/Section-2-Encryption-with-AWS-KMS.md)
-* [Section III - Key Policies and best practices - Working with a Web App](https://github.com/aws-samples/aws-kms-workshop/blob/master/Section-3-Working-with-Web-App.md)
-* [Section IV - Monitoring AWS KMS](https://github.com/aws-samples/aws-kms-workshop/blob/master/Section-4-Monitoring-AWS-KMS.md).
+* [Workshop Environment Set-up](https://github.com/charliejllewellyn/aws-kms-workshop/blob/master/Section-0-Workshop-Environment-Set-up.md)
+* [Section I - Operating with AWS KMS and the CMKs](https://github.com/charliejllewellyn/aws-kms-workshop/blob/master/Section-1-Operating-with-AWS-KMS.md)
+* [Section II - Encryption with AWS KMS](https://github.com/charliejllewellyn/aws-kms-workshop/blob/master/Section-2-Encryption-with-AWS-KMS.md)
+* [Section III - Key Policies and best practices - Working with a Web App](https://github.com/charliejllewellyn/aws-kms-workshop/blob/master/Section-3-Working-with-Web-App.md)
+* [Section IV - Monitoring AWS KMS](https://github.com/charliejllewellyn/aws-kms-workshop/blob/master/Section-4-Monitoring-AWS-KMS.md).
 
 The workshop is mostly practical and will operate in AWS KMS using the AWS CLI (through an EC2 instance), AWS console and AWS KMS API calls, to get a better understanding of the different options. 
 
@@ -44,6 +44,6 @@ AWS KMS prior knowledge is not really needed, but if would be great if you take 
 
 # Ready to go?
 
-**Once you are ready**, go to the set up section of the workshop and launch the CloudFormation template that will provide with the needed resources to start the workshop: [Section 0 - Workshop Environment Set-up](https://github.com/aws-samples/aws-kms-workshop/blob/master/Section-0-Workshop-Environment-Set-up.md).
+**Once you are ready**, go to the set up section of the workshop and launch the CloudFormation template that will provide with the needed resources to start the workshop: [Section 0 - Workshop Environment Set-up](https://github.com/charliejllewellyn/aws-kms-workshop/blob/master/Section-0-Workshop-Environment-Set-up.md).
 
 

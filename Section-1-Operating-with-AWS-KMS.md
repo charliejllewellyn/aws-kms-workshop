@@ -26,10 +26,11 @@ Leave all fields blank except for the default region. Choose the code of the reg
 See an example below setting up Ireland as the default region in AWS CLI:
 
 ```
+[ec2-user@ip-10-0-X-X ~]$ sudo -i
 [ec2-user@ip-10-0-X-X ~]$ aws configure
 AWS Access Key ID [None]: 
 AWS Secret Access Key [None]: 
-Default region name [None]: eu-west-1
+Default region name [None]: eu-west-2
 Default output format [None]: 
 [ec2-user@ip-10-0-X-X ~]$ 
 ```

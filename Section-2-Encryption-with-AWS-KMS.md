@@ -196,7 +196,7 @@ By completing this part of the workshop you now have a better understanding of w
 # S3 Serverside Encryption
 In this seciton we will:
 - tighten our administrative key policy
-- use a second IAM user with full S3 permission via IAm to upload data
+- use a second IAM user with full S3 permission via IAM to upload data
 - Enforce default bucket encryption
 - demonstrate what access the second user now has
 - Add KMS policy access to allow the user to encrypt and encrypt data in S3

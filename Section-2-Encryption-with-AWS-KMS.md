@@ -206,7 +206,7 @@ In this seciton we will:
 - Open the IAM console, select **roles** and search for *team*
 - Open the role and copy the **arn**
 - Open the KMS console and select the key you created earlier
-- Edit teh key policy and edit the key policy
+- Edit the key policy and edit the key policy
 - Change the principal to the **arn** you got from the previous step
 This will now only allow this role to manage this key
 

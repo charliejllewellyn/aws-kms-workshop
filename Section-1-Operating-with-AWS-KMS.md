@@ -148,7 +148,7 @@ Please change it for your corresponding KeyId value when applicable.
 
 The ARN of the key and its status ("Enabled", "Disabled") are highly relevant too. Other type of information is displayed. For example: the Account Id where the key belongs to. Another relevant piece of information is the the target key usage, this is: encrypt and decrypt in this case. 
 
-If you go back to the AWS console and navigate to the IAM service. Click in the left area to the bottom, "Encryption Keys", the key you have just created is already listed there. **Important: Remember to select the right Region in the KMS screen**. However, as we used the create-key command without parameters, it does not contain any alias to display and looks like its alias is empty. See image below the region selection and the blank alias name.
+If you go back to the AWS console and navigate to the KMS service. The key you have just created is already listed there. However, as we used the create-key command without parameters, it does not contain any alias to display and looks like its alias is empty. See image below the region selection and the blank alias name.
 
 ![Figure-15](/res/S1F15.png)
 <**Figure-15**>

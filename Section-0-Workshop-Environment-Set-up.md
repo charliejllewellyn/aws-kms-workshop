@@ -42,20 +42,7 @@ When you are ready, please follow the following steps to create all the artifact
 
    If you need overall help with CloudFormation stacks, see [the CloudFormation documenation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html).
 
-
-5. Make sure the security groups associated with the instance allow it to be accessible via SSH from your IP. **NOTE:**  you should restrict the initially created security group rule to be accesible only to your IP or the range of IPs from your LAN. Check the following [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SG_Changing_Group_Membership) if you need guidance.
-
-
-6. Once the EC2 instance is up and running, assign the "**KMSWorkshop-InstanceInitRole**" to the instance you have launched. We do it to ensure that the AWS CLI on the instance has enough permissions to run AWS KMS operations.
-If you need help with the operation, navigate to the EC2 service in the AWS console and take a look into picture below to locate the role attachment option. Optionally, use the following [AWS Security Blog article](https://aws.amazon.com/blogs/security/easily-replace-or-attach-an-iam-role-to-an-existing-ec2-instance-by-using-the-ec2-console/).
-
-
-![alt text](/res/S0F0.png)
-
-
-
-
-7. Once the instance is launched and contains the Role, try to connect to it via terminal. If you need help, [check the options here](https://docs.aws.amazon.com/quickstarts/latest/vmlaunch/step-2-connect-to-instance.html).
+5. Once the instance is launched and contains the Role, try to connect to it via Sessions Manager. If you need help, [check the options here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/session-manager.html).
 
 
 If you can connect to your instance then **You should now be ready to start with the workshop**, let's [Go to first section of workshop](https://github.com/charliejllewellyn/aws-kms-workshop/blob/master/Section-1-Operating-with-AWS-KMS.md)

@@ -56,25 +56,17 @@ You will notice that the command will fail to run. Our current Role with Power U
 
 We need to provide with permission to generate a data key. 
 
-The process is the same as we have seen twice in the previous section of the workshop, please go back to it if you need to in the following link: "[Create the import material and encrypt it for the import](https://github.com/charliejllewellyn/aws-kms-workshop/blob/master/Section-1-Operating-with-AWS-KMS.md#step-4---import-your-key-material)"
+You need to go back to the AWS console, in the services area navigate to IAM and go to "**Roles**" and select the role **KMSWorkshop-InstanceInitRole**. We are going to update policy we created earlier "**KMSWorkshop-AdditionalPermissions**".
 
-Basically, you need to go back to the AWS console, in the services area navigate to IAM and go to "**Policies**". We are going to create a new policy and attach it to the Power user role.
-
-As we did in the previous section, click on new "**Create Policy**", Select KMS as the service, go to the Actions area.
 In the "Write" section, select "**GenerateDataKey**" operation. Additionally select "**Encrypt**", "**Decrypt**" and the tagging operations **as you can see in image below**, we will need them for the nexts steps. and "**Any**" as resource. 
 
 ![alt text](/res/S2F16.png)
 
 <**Figure-1**>
 
+Once completed save the changes.
 
-
-
-Click on "**Review Policy**" and then give the policy a name, for example "**KMSWorkshop-AdditionalPermissions**".
-
-You can click now in "**Create Policy**". Once created, attach it to the role **KMSWorkshop-InstanceInitRole**.
-
-Once the policy is attached, if you try the same command again, it will succeed now. The command will return a JSON output  with:
+Once the policy is updated, if you try the same command again, it will succeed now. The command will return a JSON output  with:
 * the plaintext data key - Plaintext key in b64 encoding
 * the KeyId used to encrypt plaintext data key
 * A CiphertextBlob which is the encrypted data key generated, in base64 enconding. 

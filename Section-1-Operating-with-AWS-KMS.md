@@ -195,8 +195,24 @@ $ aws kms enable-key-rotation --key-id your-key-id
 
 ```
 
+You will notice that the command will fail to run. Our current Role with Power User permissions does not have enough privileges to enable key rotation. As per least privilege best practices, we are providing permissions as needed in policies attached to the role that can be easily tracked and detached when such permission for that user is not needed any more.
 
-If the command executed successfully, you have enabled the automatic rotation of the CMK, that will happen in 365 days since the command executed, this is: 1 year from now.
+We need to provide with permission to enable key rotation. 
+
+You need to go back to the AWS console, in the services area navigate to IAM and go to "**Policies**". We are going to create a new policy and attach it to the Power user role.
+
+Click on new "**Create Policy**", Select KMS as the service, go to the Actions area.
+In the "Write" section, select "**EnableKeyRotation**" operation. Additionally select "**EnableKey**", "**Disable**", we will need them for the nexts steps. and "**Any**" as resource. 
+
+![alt text](/res/kms-additional-policies.png)
+
+<**Figure-1**>
+
+Click on "**Review Policy**" and then give the policy a name, for example "**KMSWorkshop-AdditionalPermissions**".
+
+You can click now in "**Create Policy**". Once created, attach it to the role **KMSWorkshop-InstanceInitRole**.
+
+Once the policy is attached, if you try the same command again, it will succeed now. You have enabled the automatic rotation of the CMK, that will happen in 365 days since the command executed, this is: 1 year from now.
 
 ### Deleting AWS KMS CMKs
 

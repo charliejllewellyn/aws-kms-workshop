@@ -32,17 +32,8 @@ When you are ready, please follow the following steps to create all the artifact
    
    The stack is now being created. If you got lost in the process, please look into the [CloudFormation Stack Creation documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html)
    
-   
-   
 
-4. Once the CloudFormation Stack is Ready, launch an instance from Amazon Linux AMI on the VPC and subnet of your choice (but in the same region you started in). We will use this instance to work with the AWS CLI, so you can select a really small instance size, like "t2.micro". You can always create the VPC and Subnet when you launch the instance, at Step 3: "**Configure Instance Details**".
-  It is important that you make sure the instance has internet access in the subnet it is launched. You need to use an    
-  Internet Gateway and update the subnet Route table.
-  If you need help with these steps, make sure you check [this section of the AWS Documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-getting-started.html).
-
-   If you need overall help with CloudFormation stacks, see [the CloudFormation documenation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html).
-
-5. Once the instance is launched and contains the Role, try to connect to it via Sessions Manager. If you need help, [check the options here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/session-manager.html).
+4. Once the CloudFormation Stack is Ready, head over to the EC2 console and connect the instance **KMS-Workshop** using Sessions Manager. If you need help, [check the options here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/session-manager.html).
 
 
 If you can connect to your instance then **You should now be ready to start with the workshop**, let's [Go to first section of workshop](https://github.com/charliejllewellyn/aws-kms-workshop/blob/master/Section-1-Operating-with-AWS-KMS.md)

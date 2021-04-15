@@ -214,6 +214,9 @@ Let's re-enable it to keep using it. In order to do so, execute the following co
 ```
 $ aws kms enable-key --key-id your-key-id
 ```
+
+**The commands below are for information purposes, don´t execute it as part of the workshop**. 
+
 For the deletion operation, AWS KMS enforces a waiting period. To delete a CMK in AWS KMS you have to schedule a key deletion.
 You can set the waiting period from a minimum of 7 days up to a maximum of 30 days. The default waiting period is 30 days. Let's schedule key deletion in seven days, use the following command. Please, replace "**your-key-id**" with the  corresponding KeyID or ARN for the first CMK you created with the first AWS KMS command in this workshop, the one is not currently being point at by the alias.
 ```
@@ -228,8 +231,6 @@ $ aws kms schedule-key-deletion --key-id your-key-id --pending-window-in-days 7
 Working with CMKs that have been generated with your own key material is a bit different because you can schedule a key deletion but you can also delete key material on demand. Therefore, for deletion of key material, you can schedule a date and wait for the key material to expire or you delete it manually.
 
 If you want to delete it **immediately**, you could issue a command like the one below to delete the key material you have imported, rendering the key unusable. You should replace "your-key-id" with your corresponding KeyID or ARN.
-
-**The command below is for information purposes, don´t execute it as part of the workshop**. 
 
 If for any reason you delete the key we generated with our own key material "**ImportedCMK**", later you would have to import again your key material into the CMK and into the same alias to get it back to an usable state.
 
